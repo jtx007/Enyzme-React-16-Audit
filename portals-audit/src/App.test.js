@@ -1,9 +1,21 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { shallow, mount, render } from "enzyme";
+import App from "./App";
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+it("should render App component", () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.exists()).toBe(true)
 });
+
+it("should render a button with text 'Show Modal ", () => {
+  const wrapper = shallow(<App />)
+  const button = wrapper.find('.show-modal-button')
+  expect(button.exists()).toBe(true)
+  expect(button.text()).toBe('Show Modal')
+});
+
+it('modal is in app component', () => {
+  const wrapper = shallow(<App />)
+  expect(wrapper.find("Modal").exists()).toBe(true)
+});
+
