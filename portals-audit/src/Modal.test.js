@@ -8,6 +8,5 @@ it('should render Modal component depending on props', () => {
     const modalTriggerButton = appWrapper.find('.show-modal-button')
     const isModalOpen = true
     const modalWrapper = shallow(<Modal isOpen={false} />);
-    console.log(modalWrapper.getElements())
     
 });
